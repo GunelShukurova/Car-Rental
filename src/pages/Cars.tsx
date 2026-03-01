@@ -7,13 +7,19 @@ import { MdPeople } from "react-icons/md";
 import { PiRadioButtonThin } from "react-icons/pi";
 import useSidebarContext from "../context/SideBarContext/sideBarContext";
 import Sidebar from "../components/Sidebar";
+import { useNavigate } from "react-router-dom";
+import useFavorite from "../context/FavoriteContext/favoriteContext";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import useSearchContext from "../context/SearchContext/searchContext";
 
 const Cars = () => {
   const [cars, setCars] = useState<Car[]>([]);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [selectedSeats, setSelectedSeats] = useState<number[]>([]);
   const [maxPrice, setMaxPrice] = useState(0);
-
+  const { toggleFavorite, isFavorite } = useFavorite();
+  const { searchValue } = useSearchContext();
+  const navigate = useNavigate();
   const { isSidebarOpen } = useSidebarContext();
 
   useEffect(() => {
@@ -22,7 +28,7 @@ const Cars = () => {
         const dataCar = await getAllCars();
         setCars(dataCar);
 
-        const max = Math.max(...dataCar.map(c => c.price));
+        const max = Math.max(...dataCar.map((c) => c.price));
         setMaxPrice(max);
       } catch (error) {
         console.log(error);
@@ -32,29 +38,54 @@ const Cars = () => {
   }, []);
 
   const filteredCars = cars
-    .filter(car =>
-      selectedCategories.length === 0 ? true : selectedCategories.includes(car.category)
+    .filter(
+      (car) =>
+        car.brand.toLowerCase().includes(searchValue.toLowerCase().trim()) ||
+        car.model.toLowerCase().includes(searchValue.toLowerCase().trim()) ||
+        car.category.toLowerCase().includes(searchValue.toLowerCase().trim()),
     )
-    .filter(car => (selectedSeats.length === 0 ? true : selectedSeats.includes(car.seats)))
-    .filter(car => car.price <= maxPrice);
+    .filter((car) =>
+      selectedCategories.length === 0
+        ? true
+        : selectedCategories.includes(car.category),
+    )
+    .filter((car) =>
+      selectedSeats.length === 0 ? true : selectedSeats.includes(car.seats),
+    )
+    .filter((car) => car.price <= maxPrice);
 
   return (
-    <div className={`transition-all duration-300 ${isSidebarOpen ? "md:pl-96" : ""} pt-20`}>
-      <section className="mt-10 mx-4 sm:mx-6 md:mx-10 lg:mx-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 auto-rows-fr">
-          {filteredCars.map(car => (
+    <div
+      className={`transition-all duration-300  ${isSidebarOpen ? "md:pl-96" : ""} pt-20`}
+    >
+      <section className="mt-10 mx-4 sm:mx-6 md:mx-10 lg:mx-20 min-h-screen mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 auto-rows-fr ">
+          {filteredCars.map((car) => (
             <div
               key={car.id}
+              onClick={() => navigate(`/cars/${car.id}`)}
               className="bg-white rounded-lg shadow-md p-4 flex flex-col items-center transition-transform hover:scale-105 w-full"
             >
-              {/* Заголовок и фаворит */}
               <div className="flex flex-col sm:flex-row justify-between w-full mb-2 items-start sm:items-center gap-2">
                 <div className="flex flex-col sm:gap-2 w-full">
-                  <h3 className="text-lg font-semibold truncate">{car.brand} {car.model}</h3>
+                  <h3 className="text-lg font-semibold truncate">
+                    {car.brand} {car.model}
+                  </h3>
                   <span className="text-gray-500 text-md">{car.category}</span>
                 </div>
-                <div className="text-red-600">
-                  <FavoriteIcon className="w-6 h-6" />
+                <div>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleFavorite(car.id);
+                    }}
+                  >
+                    {isFavorite(car.id) ? (
+                      <FavoriteIcon className="text-red-500" />
+                    ) : (
+                      <FavoriteBorderIcon />
+                    )}
+                  </button>
                 </div>
               </div>
 
@@ -92,7 +123,6 @@ const Cars = () => {
           ))}
         </div>
       </section>
-
       <Sidebar
         cars={cars}
         filteredCars={filteredCars}

@@ -10,8 +10,13 @@
       "transmission": "Manual",
       "fuelCapacity": 60,
       "image": "https://pictures.dealer.com/s/sonicbeverlyhillsbmw/1234/b131cf4f2e58438f95142a59c8f66f6e.jpg",
+      "images": [
+        "https://carexpert.ru/img/int1200/bmw4i13m4k-04.jpg",
+        "https://a.d-cd.net/FfdtZcqMAc1kd4n7AN7J0NQSdpU-960.jpg"
+      ],
       "isPopular": true,
-      "isRecommended": false
+      "isRecommended": false,
+      "description": "The BMW M4 is a high-performance sports car with a perfect balance of power, style, and handling."
     },
     {
       "id": 2,
@@ -23,8 +28,13 @@
       "transmission": "Automatic",
       "fuelCapacity": 70,
       "image": "https://i.pinimg.com/736x/95/37/27/953727d64d5f982f07ff64656c45b25d.jpg",
+      "images": [
+        "https://s.auto.drom.ru/i24261/c/photos/fullsize/audi/r8/audi_r8_1027633.jpg",
+        "https://testdrive.com.ua/wp-content/uploads/2015/08/A7.jpeg"
+      ],
       "isPopular": true,
-      "isRecommended": false
+      "isRecommended": false,
+      "description": "The Audi R8 combines exotic styling with exceptional performance and quattro all-wheel drive."
     },
     {
       "id": 3,
@@ -36,8 +46,13 @@
       "transmission": "Automatic",
       "fuelCapacity": 66,
       "image": "https://www.nicepng.com/png/detail/100-1008542_mb-c-klasse-4d-schwarz-mercedes-benz-c.png",
+      "images": [
+        "https://s0.rbk.ru/v6_top_pics/media/img/8/94/754788638961948.jpeg",
+        "https://cdcssl.ibsrv.net/autodata/images/?img=USC90MBC891A01351.JPG&width=848"
+      ],
       "isPopular": true,
-      "isRecommended": false
+      "isRecommended": false,
+      "description": "Mercedes C-Class offers a refined and luxurious experience with advanced safety and comfort features."
     },
     {
       "id": 4,
@@ -49,8 +64,13 @@
       "transmission": "Automatic",
       "fuelCapacity": 70,
       "image": "https://alcf.s3.us-west-1.amazonaws.com/_custom/2023/maserati/granturismo/Maserati-GranTurismo-PNG-HD-Isolated.png",
+      "images": [
+        "https://www.allcarz.ru/wp-content/uploads/2014/12/foto-maserati-gt_03-650x433.jpg",
+        "https://carexpert.ru/img/int1200/masrgti08p.jpg"
+      ],
       "isPopular": true,
-      "isRecommended": false
+      "isRecommended": false,
+      "description": "The Maserati GranTurismo delivers Italian elegance and thrilling performance in a luxury sports coupe."
     },
     {
       "id": 5,
@@ -62,8 +82,13 @@
       "transmission": "Manual",
       "fuelCapacity": 61,
       "image": "https://www.summitavto.si/wp-content/uploads/2022/10/mustang-ecoboost-fastback-racered7.png",
+      "images": [
+        "https://carexpert.ru/img/int1200/fordumui17p-01.jpg",
+        "https://carinterier.ru/assets/cache_image/assets/projectgallery/338/image-07-05-21-13-22-3_1280x960_647.jpeg"
+      ],
       "isPopular": false,
-      "isRecommended": true
+      "isRecommended": true,
+      "description": "The Ford Mustang is an iconic American muscle car combining style, power, and performance."
     },
     {
       "id": 6,
@@ -75,8 +100,13 @@
       "transmission": "Automatic",
       "fuelCapacity": 72,
       "image": "https://i.pinimg.com/736x/29/fa/77/29fa77b1e18ff508b11e68f4ff81b0aa.jpg",
+      "images": [
+        "https://wroom.ru/i/cars2/chevrolet_camaro_6_2.jpg",
+        "https://www.auto-loker.ru/upload/iblock/650/salon1_camaro_2.jpg"
+      ],
       "isPopular": false,
-      "isRecommended": true
+      "isRecommended": true,
+      "description": "Chevrolet Camaro is a sporty coupe with aggressive design and a thrilling driving experience."
     },
     {
       "id": 7,
@@ -88,8 +118,13 @@
       "transmission": "Manual",
       "fuelCapacity": 47,
       "image": "https://automobiles.honda.com/-/media/Honda-Automobiles/Vehicles/2026/civic-sedan/AW/Carshot/carshot_CivicSedan_front_CIVIC4DHYBSPTRG_2026_SolarSilverMetallic_FE4F8TKNW_NH-932M.png",
+      "images": [
+        "https://lh6.googleusercontent.com/proxy/kr0We3ApL22-rQ6NTMcJRFOqSkmFCMQomjC2BynQ1OSBiXDPxLqDf2Zlnk2_s7ocPN5lRxt68TsGAvgtj2gZazubkJVo0BYMx-RahamVX3DFaOfMLXtuZaDaxDjBbzUO5E0qSYGAmiBBOaj-Tk37hTQJ",
+        "https://img-c.drive.ru/models.photos/3840/000/000/001/82b/88ccceede15d81d0-large.jpg"
+      ],
       "isPopular": false,
-      "isRecommended": true
+      "isRecommended": true,
+      "description": "Honda Civic is a reliable and fuel-efficient sedan with modern styling and advanced features."
     },
     {
       "id": 8,
@@ -101,8 +136,13 @@
       "transmission": "Automatic",
       "fuelCapacity": 80,
       "image": "https://www.shutterstock.com/image-vector/blue-luxury-premium-high-class-600nw-2264788569.jpg",
+      "images": [
+        "https://dvizhok.su/assets/images/resources/19738/bentley-continental-gt-speed-convertible-2021-interior-s.jpg",
+        "https://avatars.mds.yandex.net/get-vertis-journal/4465444/One-of-one_GT_Speed_-_7.jpg_1692683208923/orig"
+      ],
       "isPopular": false,
-      "isRecommended": true
+      "isRecommended": true,
+      "description": "Bentley Continental GT combines ultimate luxury with impressive power and refinement."
     },
     {
       "id": 9,
@@ -114,8 +154,13 @@
       "transmission": "Automatic",
       "fuelCapacity": 54,
       "image": "https://media.motorfuse.com/img.cfm/type/3/img/0F16CD4A4E03DCD3CEE6ABC1C12B0910F5CB41",
+      "images": [
+        "https://carexpert.ru/img/int1200/kiaspi21-01.jpg",
+        "https://www.avtogermes.ru/images/models/interior/kia-sportage-v-interer.3ebcaccdd4515574b6f4da88742ea414_w1200.jpg"
+      ],
       "isPopular": false,
-      "isRecommended": true
+      "isRecommended": true,
+      "description": "Kia Sportage is a practical SUV offering space, comfort, and reliable performance."
     },
     {
       "id": 10,
@@ -123,12 +168,17 @@
       "model": "X-Trail",
       "category": "SUV",
       "price": 90,
-      "seats":2,
+      "seats": 2,
       "transmission": "Automatic",
       "fuelCapacity": 60,
       "image": "https://www-europe.nissan-cdn.net/content/dam/Nissan/nissan_europe/Configurator/version-explorer-2024-packshot/XTRAIL/XTRAIL-grades/23TDIEULHD_XT_GSR_N-Connecta_NBL_18AW_001.png",
+      "images": [
+        "https://dvizhok.su/assets/images/resources/6419/nissan-x-trail-12(2).jpg",
+        "https://avtoexperts.ru/wp-content/uploads/2019/04/interier-x-trail-t32.jpg"
+      ],
       "isPopular": false,
-      "isRecommended": true
+      "isRecommended": true,
+      "description": "Nissan X-Trail is a versatile SUV with off-road capabilities and comfortable interior."
     },
     {
       "id": 11,
@@ -140,8 +190,13 @@
       "transmission": "Automatic",
       "fuelCapacity": 64,
       "image": "https://models.porsche.com/_next/image?url=https%3A%2F%2Fprs.porsche.com%2Fiod%2Fimage%2FLB%2F992182%2F1%2FN4Igxg9gdgZglgcxALlAQynAtmgLnaAZxQG0BdAGnDSwFMAnNFUOAExRFoA9cBaAGwgB3XjHrQ%2B-WjFwgqEAA74izEADc09OBlnIQrWoQDWuRSAC%2B5qrShq44qHSi6W7PQHUAFnFwMIELABBfgVPJnklAihiVEsqfkRPfCgkVBA2DgARQIBNORBFZWjmOJAFcVYAVzAXdLcQAE4GgCYARgAOZvzCqJjQSErnegBPAGEIAw4AGQAhfKwJ2n4c2k0UZoAGZoA2CKKYkhANgEkuqg2ARXzWgHF264A5AGZrgBUzkGaANQAWfKeZi8qE8AFINfI-ABiHwA7IEANL5drHACqSIAWtt8g10QBRfKjdqvfLZADK%2BVxAFkPjcNu58scvuCqMd3Bt8lMbq9MgAlKb5C4-K5UdyBEBkSxWECEWi4ZIIPogGAQeg4XRlFL5XCMaIKTQ2XTayq0SxAA%3FclientId%3Dicc&w=3840&q=100",
+      "images": [
+        "https://www.livecars.ru/l/news/2016/02/07/porsche_911/picture.jpg?1454864722",
+        "https://img.goodfon.ru/wallpaper/big/b/cf/salon-porshe-panamera.webp"
+      ],
       "isPopular": false,
-      "isRecommended": true
+      "isRecommended": true,
+      "description": "Porsche 911 is a legendary sports car offering precision handling and unmatched driving excitement."
     },
     {
       "id": 12,
@@ -153,8 +208,13 @@
       "transmission": "Automatic",
       "fuelCapacity": 78,
       "image": "https://i.pinimg.com/736x/d0/84/0d/d0840db016baad0f17eb21f8645f81ea.jpg",
+      "images": [
+        "https://img-c.drive.ru/models.photos/0000/000/000/001/0a0/48d524ad16dd30d1-large.jpg",
+        "https://s.auto.drom.ru/i24194/c/photos/fullsize/ferrari/488_gtb/ferrari_488_gtb_336211.jpg"
+      ],
       "isPopular": false,
-      "isRecommended": true
+      "isRecommended": true,
+      "description": "Ferrari 488 GTB delivers extreme performance and Italian craftsmanship in a stunning sports car."
     }
   ]
 }

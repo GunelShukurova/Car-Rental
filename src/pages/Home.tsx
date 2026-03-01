@@ -14,6 +14,8 @@ import type { Car } from "../types/car";
 import useSearchContext from "../context/SearchContext/searchContext";
 import useSidebarContext from "../context/SideBarContext/sideBarContext";
 import Sidebar from "../components/Sidebar";
+import useFavorite from "../context/FavoriteContext/favoriteContext";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 const Home = () => {
   const [cars, setCars] = useState<Car[]>();
@@ -22,7 +24,7 @@ const Home = () => {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [selectedSeats, setSelectedSeats] = useState<number[]>([]);
   const [maxPrice, setMaxPrice] = useState(0);
-
+  const { toggleFavorite, isFavorite } = useFavorite();
   useEffect(() => {
     const loadCar = async () => {
       try {
@@ -76,24 +78,12 @@ const Home = () => {
       )
       .filter((car) => car.price <= maxPrice) || [];
 
-  const handleCategoryChange = (category: string) => {
-    setSelectedCategories((prev) =>
-      prev.includes(category)
-        ? prev.filter((c) => c !== category)
-        : [...prev, category],
-    );
-  };
-
-  const handleSeatsChange = (seats: number) => {
-    setSelectedSeats((prev) =>
-      prev.includes(seats) ? prev.filter((s) => s !== seats) : [...prev, seats],
-    );
-  };
-
   return (
-    <div className={`transition-all ${isSidebarOpen ? "md:pl-96" : ""}`}>
-      <section className="flex flex-col md:flex-row gap-6 w-full px-4 md:px-32 mt-30">
-        <div className="relative w-full md:w-1/2 h-[360px] md:h-[400px] bg-[#54A6FF] rounded-lg overflow-hidden flex flex-col">
+    <div
+      className={`transition-all min-h-screen mb-10 ${isSidebarOpen ? "md:pl-96" : ""}`}
+    >
+      <section className="flex flex-col md:flex-row gap-6 w-full px-4 md:px-32 mt-30  ">
+        <div className="relative w-full md:w-1/2 h-[360px] md:h-[400px] bg-[#54A6FF] rounded-lg overflow-hidden flex flex-col ">
           <div className="flex flex-col h-full p-6 md:p-8 z-10">
             <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white w-full md:w-[272px]">
               The Best Platform for Car Rental
@@ -136,7 +126,6 @@ const Home = () => {
       </section>
       <section className="mt-3 mx-4 md:mx-24 items-center">
         <div className="flex flex-col md:flex-row flex-wrap md:flex-nowrap gap-6 md:gap-10 w-full p-4 md:p-7 rounded-lg items-stretch md:items-center">
-          {/* Pick-Up */}
           <div className="flex flex-col gap-4 w-full md:flex-1 bg-white p-5 rounded-lg">
             <div className="flex items-center gap-3 mb-3">
               <span className="text-blue-800">
@@ -184,8 +173,6 @@ const Home = () => {
               </div>
             </div>
           </div>
-
-          {/* Кнопка обмена */}
           <div className="flex justify-center w-full md:w-auto mt-4 md:mt-0">
             <div className="bg-[#3563E9] flex px-2 py-3 h-15 rounded-lg gap-1">
               <span className="text-white text-lg">
@@ -196,8 +183,6 @@ const Home = () => {
               </span>
             </div>
           </div>
-
-          {/* Drop-Off */}
           <div className="flex flex-col gap-4 w-full md:flex-1 mt-4 md:mt-0 bg-white p-5 rounded-lg">
             <div className="flex items-center gap-3 mb-3">
               <span className="text-blue-500">
@@ -247,7 +232,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="mt-10 mx-4 sm:mx-6 md:mx-10 lg:mx-20">
+      <section className="mt-10 mx-4 sm:mx-6 md:mx-10 lg:mx-30">
         <h2 className="text-gray-400 text-xl mb-6">Popular Car</h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 auto-rows-fr">
@@ -267,8 +252,19 @@ const Home = () => {
                       {car.category}
                     </span>
                   </div>
-                  <div className="text-red-600">
-                    <FavoriteIcon className="w-6 h-6" />
+                  <div>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleFavorite(car.id);
+                      }}
+                    >
+                      {isFavorite(car.id) ? (
+                        <FavoriteIcon className="text-red-500" />
+                      ) : (
+                        <FavoriteBorderIcon />
+                      )}
+                    </button>
                   </div>
                 </div>
 
@@ -305,7 +301,7 @@ const Home = () => {
             ))}
         </div>
       </section>
-      <section className="mt-10 mx-4 sm:mx-6 md:mx-10 lg:mx-20">
+      <section className="mt-10 mx-4 sm:mx-6 md:mx-10 lg:mx-30">
         <h2 className="text-gray-400 text-xl mb-6">Recomendation Car</h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 auto-rows-fr">
@@ -316,7 +312,6 @@ const Home = () => {
                 key={car.id}
                 className="bg-white rounded-lg shadow-md p-4 flex flex-col items-center transition-transform hover:scale-105 w-full"
               >
-                {/* Заголовок и фаворит */}
                 <div className="flex flex-col sm:flex-row justify-between w-full mb-2 items-start sm:items-center gap-2">
                   <div className="flex flex-col  sm:gap-2 w-full">
                     <h3 className="text-lg font-semibold truncate">
@@ -326,19 +321,26 @@ const Home = () => {
                       {car.category}
                     </span>
                   </div>
-                  <div className="text-red-600">
-                    <FavoriteIcon className="w-6 h-6" />
+                  <div>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleFavorite(car.id);
+                      }}
+                    >
+                      {isFavorite(car.id) ? (
+                        <FavoriteIcon className="text-red-500" />
+                      ) : (
+                        <FavoriteBorderIcon />
+                      )}
+                    </button>
                   </div>
                 </div>
-
-                {/* Изображение */}
                 <img
                   src={car.image}
                   alt={car.brand}
                   className="w-full h-40 sm:h-44 md:h-48 lg:h-52 object-cover rounded-md mb-4"
                 />
-
-                {/* Характеристики */}
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between w-full gap-2 mb-3 text-gray-400">
                   <div className="flex items-center gap-1">
                     <LocalGasStationIcon className="w-5 h-5" />
@@ -353,8 +355,6 @@ const Home = () => {
                     <span>{car.seats} People</span>
                   </div>
                 </div>
-
-                {/* Цена и кнопка */}
                 <div className="flex flex-col sm:flex-row w-full items-center justify-between gap-2">
                   <div className="text-center sm:text-left">
                     <span className="text-xl font-semibold">${car.price}</span>
@@ -369,16 +369,16 @@ const Home = () => {
         </div>
       </section>
       <section>
-      <Sidebar
-        cars={cars}
-        filteredCars={filteredCars}
-        selectedCategories={selectedCategories}
-        setSelectedCategories={setSelectedCategories}
-        selectedSeats={selectedSeats}
-        setSelectedSeats={setSelectedSeats}
-        maxPrice={maxPrice}
-        setMaxPrice={setMaxPrice}
-      />
+        <Sidebar
+          cars={cars}
+          filteredCars={filteredCars}
+          selectedCategories={selectedCategories}
+          setSelectedCategories={setSelectedCategories}
+          selectedSeats={selectedSeats}
+          setSelectedSeats={setSelectedSeats}
+          maxPrice={maxPrice}
+          setMaxPrice={setMaxPrice}
+        />
       </section>
     </div>
   );

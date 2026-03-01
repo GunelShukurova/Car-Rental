@@ -7,25 +7,44 @@ import { FaBars } from "react-icons/fa6";
 import useSearchContext from "../context/SearchContext/searchContext";
 import useSidebarContext from "../context/SideBarContext/sideBarContext";
 import { useNavigate } from "react-router-dom";
+import useFavorite from "../context/FavoriteContext/favoriteContext";
 
 const Header = () => {
   const { searchValue, setSearchValue } = useSearchContext();
   const { setIsSidebarOpen } = useSidebarContext();
   const navigate = useNavigate();
+  const { favorites } = useFavorite();
 
   return (
-    <div className="w-full bg-white border-b border-gray-200 flex flex-col sm:flex-row justify-between items-center px-4 sm:px-8 md:px-16 py-4 gap-3 fixed top-0 z-50 shadow-sm">
-      <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-4 w-full sm:w-auto">
-        <span className="text-2xl sm:text-3xl font-semibold text-[#3563E9] order-1 text-center sm:text-left">
-          MORENT
+    <div className="w-full bg-white border-b border-gray-200 flex flex-col sm:flex-row justify-between items-stretch sm:items-center px-4 sm:px-8 md:px-16 py-4 gap-3 fixed top-0 z-50 shadow-sm">
+      <div className="flex w-full justify-between items-center sm:hidden mb-2">
+        <span
+          className="text-gray-600 p-2 border border-gray-300 rounded-full flex justify-center items-center cursor-pointer"
+          onClick={() => setIsSidebarOpen(true)}
+        >
+          <FaBars />
         </span>
         <span
-          onClick={() => navigate("/cars")}
-          className="text-xl cursor-pointer text-blue-700 order-2 mt-2 sm:mt-0 text-center sm:text-left"
+          onClick={() => navigate("/")}
+          className="text-2xl font-semibold text-[#3563E9]"
         >
-          Cars
+          MORENT
         </span>
-        <div className="relative w-full sm:w-[492px] order-3 mt-2 sm:mt-0">
+
+        <img
+          className="object-cover w-8 h-8 rounded-full"
+          src="https://www.perfocal.com/blog/content/images/2021/01/Perfocal_17-11-2019_TYWFAQ_100_standard-3.jpg"
+          alt="user"
+        />
+      </div>
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-4 w-full sm:w-auto">
+        <span
+          onClick={() => navigate("/")}
+          className="hidden sm:block text-3xl font-semibold text-[#3563E9]"
+        >
+          MORENT
+        </span>
+        <div className="relative w-full sm:w-[492px] mt-2 sm:mt-0 sm:flex-1">
           <input
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
@@ -43,23 +62,44 @@ const Header = () => {
             <TuneIcon />
           </span>
         </div>
+        <div className="flex gap-4 flex-wrap mt-2 sm:mt-0 justify-center sm:justify-start w-full sm:w-auto">
+          <span
+            onClick={() => navigate("/")}
+            className="text-xl cursor-pointer text-blue-700"
+          >
+            Home
+          </span>
+          <span
+            onClick={() => navigate("/cars")}
+            className="text-xl cursor-pointer text-blue-700"
+          >
+            Cars
+          </span>
+        </div>
       </div>
-      <div className="flex gap-2 sm:gap-5 items-center order-first sm:order-none w-full sm:w-auto justify-between sm:justify-end mt-2 sm:mt-0">
-        <span className="text-gray-600 p-1 border border-gray-300 rounded-full flex justify-center items-center sm:hidden cursor-pointer">
-          <FaBars onClick={() => setIsSidebarOpen(true)} />
-        </span>
+      <div className="hidden sm:flex gap-2 sm:gap-5 items-center w-full sm:w-auto justify-end">
         <img
           className="object-cover w-8 h-8 rounded-full"
           src="https://www.perfocal.com/blog/content/images/2021/01/Perfocal_17-11-2019_TYWFAQ_100_standard-3.jpg"
           alt="user"
         />
-        <span className="hidden sm:flex text-gray-600 p-1 border border-gray-300 rounded-full justify-center items-center cursor-pointer">
-          <FavoriteIcon />
-        </span>
-        <span className="hidden sm:flex text-gray-600 p-1 border border-gray-300 rounded-full justify-center items-center cursor-pointer">
+        <div className="relative">
+          <span
+            onClick={() => navigate("/favorites")}
+            className="text-gray-600 p-1 border border-gray-300 rounded-full justify-center items-center cursor-pointer flex"
+          >
+            <FavoriteIcon />
+          </span>
+          {favorites.length > 0 && (
+            <span className="absolute -top-2 -right-2 bg-red-800 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+              {favorites.length}
+            </span>
+          )}
+        </div>
+        <span className="text-gray-600 p-1 border border-gray-300 rounded-full justify-center items-center cursor-pointer flex">
           <NotificationsIcon />
         </span>
-        <span className="hidden sm:flex text-gray-600 p-1 border border-gray-300 rounded-full justify-center items-center cursor-pointer">
+        <span className="text-gray-600 p-1 border border-gray-300 rounded-full justify-center items-center cursor-pointer flex">
           <SettingsIcon />
         </span>
       </div>

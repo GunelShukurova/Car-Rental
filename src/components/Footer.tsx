@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <div className="bg-white mt-20 px-4 sm:px-10 md:px-32 py-10">
+<footer className="bg-white px-4 sm:px-10 md:px-32 py-10 w-full">
       <div className="flex flex-col md:flex-row justify-between flex-wrap gap-10">
         <div className="mb-10 md:mb-0 max-w-full md:max-w-xs">
           <span className="text-2xl sm:text-3xl font-semibold text-[#3563E9]">
@@ -11,7 +11,6 @@ const Footer = () => {
             business.
           </p>
         </div>
-
         <div className="flex flex-wrap gap-10 md:gap-20 w-full md:w-auto">
           <div className="flex flex-col gap-5 min-w-[120px]">
             <span className="font-semibold">About</span>
@@ -22,7 +21,6 @@ const Footer = () => {
               <li>Business Relation</li>
             </ul>
           </div>
-
           <div className="flex flex-col gap-5 min-w-[120px]">
             <span className="font-semibold">Community</span>
             <ul className="text-gray-500 text-sm sm:text-base space-y-1">
@@ -32,7 +30,6 @@ const Footer = () => {
               <li>Invite a friend</li>
             </ul>
           </div>
-
           <div className="flex flex-col gap-5 min-w-[120px]">
             <span className="font-semibold">Socials</span>
             <ul className="text-gray-500 text-sm sm:text-base space-y-1">
@@ -44,7 +41,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-
       <div className="border-t border-t-gray-200 mt-10 pt-10">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
           <div>
@@ -58,7 +54,7 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 

@@ -10,4 +10,6 @@ export type Car = {
   image: string;
   isPopular?: boolean;
   isRecommended?: boolean;
+  images?: string[];
+  description: string;
 };

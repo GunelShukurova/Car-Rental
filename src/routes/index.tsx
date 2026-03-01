@@ -1,5 +1,7 @@
 import Layout from "../layout/Layout";
+import CarDetail from "../pages/CarDetail";
 import Cars from "../pages/Cars";
+import Favorite from "../pages/Favorite";
 import Home from "../pages/Home";
 
 const ROUTES = [
@@ -11,10 +13,17 @@ const ROUTES = [
         index: true,
         element: <Home />,
       },
-            {
-
+      {
         element: <Cars />,
-        path: "/cars"
+        path: "/cars",
+      },
+      {
+        element: <CarDetail />,
+        path: "/cars/:id",
+      },
+      {
+        element: <Favorite />,
+        path: "/favorites",
       },
     ],
   },
