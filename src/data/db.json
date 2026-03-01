@@ -123,7 +123,7 @@
       "model": "X-Trail",
       "category": "SUV",
       "price": 90,
-      "seats": 7,
+      "seats":2,
       "transmission": "Automatic",
       "fuelCapacity": 60,
       "image": "https://www-europe.nissan-cdn.net/content/dam/Nissan/nissan_europe/Configurator/version-explorer-2024-packshot/XTRAIL/XTRAIL-grades/23TDIEULHD_XT_GSR_N-Connecta_NBL_18AW_001.png",

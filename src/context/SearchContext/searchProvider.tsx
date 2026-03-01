@@ -5,7 +5,6 @@ interface ISearchContext {
   setSearchValue: (v: string) => void;
 }
 
-// Создаем контекст с дефолтными значениями
 const SearchContext = createContext<ISearchContext>({
   searchValue: "",
   setSearchValue: () => {},

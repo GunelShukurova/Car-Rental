@@ -1,4 +1,5 @@
 import Layout from "../layout/Layout";
+import Cars from "../pages/Cars";
 import Home from "../pages/Home";
 
 const ROUTES = [
@@ -9,6 +10,11 @@ const ROUTES = [
       {
         index: true,
         element: <Home />,
+      },
+            {
+
+        element: <Cars />,
+        path: "/cars"
       },
     ],
   },

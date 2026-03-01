@@ -15,26 +15,32 @@ const Footer = () => {
         <div className="flex flex-wrap gap-10 md:gap-20 w-full md:w-auto">
           <div className="flex flex-col gap-5 min-w-[120px]">
             <span className="font-semibold">About</span>
-            <span className="text-gray-500 text-sm sm:text-base">How it works</span>
-            <span className="text-gray-500 text-sm sm:text-base">Featured</span>
-            <span className="text-gray-500 text-sm sm:text-base">Partnership</span>
-            <span className="text-gray-500 text-sm sm:text-base">Business Relation</span>
+            <ul className="text-gray-500 text-sm sm:text-base space-y-1">
+              <li>How it works</li>
+              <li>Featured</li>
+              <li>Partnership</li>
+              <li>Business Relation</li>
+            </ul>
           </div>
 
           <div className="flex flex-col gap-5 min-w-[120px]">
             <span className="font-semibold">Community</span>
-            <span className="text-gray-500 text-sm sm:text-base">Events</span>
-            <span className="text-gray-500 text-sm sm:text-base">Blog</span>
-            <span className="text-gray-500 text-sm sm:text-base">Podcast</span>
-            <span className="text-gray-500 text-sm sm:text-base">Invite a friend</span>
+            <ul className="text-gray-500 text-sm sm:text-base space-y-1">
+              <li>Events</li>
+              <li>Blog</li>
+              <li>Podcast</li>
+              <li>Invite a friend</li>
+            </ul>
           </div>
 
           <div className="flex flex-col gap-5 min-w-[120px]">
             <span className="font-semibold">Socials</span>
-            <span className="text-gray-500 text-sm sm:text-base">Discord</span>
-            <span className="text-gray-500 text-sm sm:text-base">Instagram</span>
-            <span className="text-gray-500 text-sm sm:text-base">Twitter</span>
-            <span className="text-gray-500 text-sm sm:text-base">Facebook</span>
+            <ul className="text-gray-500 text-sm sm:text-base space-y-1">
+              <li>Discord</li>
+              <li>Instagram</li>
+              <li>Twitter</li>
+              <li>Facebook</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -46,10 +52,10 @@ const Footer = () => {
               © 2022 MORENT. All rights reserved.
             </span>
           </div>
-          <div className="flex gap-5 text-gray-600 text-sm sm:text-base flex-wrap justify-center">
-            <span>Privacy & Policy</span>
-            <span>Terms & Condition</span>
-          </div>
+          <ul className="flex gap-5 text-gray-600 text-sm sm:text-base flex-wrap justify-center">
+            <li>Privacy & Policy</li>
+            <li>Terms & Condition</li>
+          </ul>
         </div>
       </div>
     </div>

@@ -3,11 +3,11 @@ export type Car = {
   brand: string;
   model: string;
   category: string;
-  price: number;        
+  price: number;
   seats: number;
-  transmission: "Manual" | "Automatic"; 
-  fuelCapacity: number;  
+  transmission: "Manual" | "Automatic";
+  fuelCapacity: number;
   image: string;
-    isPopular?: boolean;   
-  isRecommended?: boolean;         
+  isPopular?: boolean;
+  isRecommended?: boolean;
 };
