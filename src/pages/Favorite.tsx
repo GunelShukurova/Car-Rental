@@ -8,12 +8,18 @@ import { MdPeople } from "react-icons/md";
 import { PiRadioButtonThin } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";
 import useSearchContext from "../context/SearchContext/searchContext";
+import useSidebarContext from "../context/SideBarContext/sideBarContext";
+import Sidebar from "../components/Sidebar";
 
 const Favorite = () => {
   const { favorites, toggleFavorite } = useFavorite();
   const [cars, setCars] = useState<Car[]>([]);
   const navigate = useNavigate();
   const { searchValue } = useSearchContext();
+  const { isSidebarOpen } = useSidebarContext();
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [selectedSeats, setSelectedSeats] = useState<number[]>([]);
+  const [maxPrice, setMaxPrice] = useState(0);
 
   useEffect(() => {
     const loadCars = async () => {
@@ -31,8 +37,27 @@ const Favorite = () => {
         c.model.toLowerCase().includes(searchValue.toLowerCase().trim()) ||
         c.category.toLowerCase().includes(searchValue.toLowerCase().trim()),
     );
+  const filteredCars = cars
+    .filter(
+      (car) =>
+        car.brand.toLowerCase().includes(searchValue.toLowerCase().trim()) ||
+        car.model.toLowerCase().includes(searchValue.toLowerCase().trim()) ||
+        car.category.toLowerCase().includes(searchValue.toLowerCase().trim()),
+    )
+    .filter((car) =>
+      selectedCategories.length === 0
+        ? true
+        : selectedCategories.includes(car.category),
+    )
+    .filter((car) =>
+      selectedSeats.length === 0 ? true : selectedSeats.includes(car.seats),
+    )
+    .filter((car) => car.price <= maxPrice);
 
   return (
+      <div
+      className={`transition-all duration-300  ${isSidebarOpen ? "md:pl-96" : ""} `}
+    >
     <section className="mt-30 lg:mt-40 sm:mt-20 mx-4 sm:mx-6 md:mx-10 lg:mx-20 min-h-screen mb-10 ье-10">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-6">
         {favoriteCars.map((car) => (
@@ -96,6 +121,17 @@ const Favorite = () => {
         </div>
       )}
     </section>
+      <Sidebar
+        cars={cars}
+        filteredCars={filteredCars}
+        selectedCategories={selectedCategories}
+        setSelectedCategories={setSelectedCategories}
+        selectedSeats={selectedSeats}
+        setSelectedSeats={setSelectedSeats}
+        maxPrice={maxPrice}
+        setMaxPrice={setMaxPrice}
+      />
+    </div>
   );
 };
 
