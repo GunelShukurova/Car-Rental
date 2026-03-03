@@ -16,6 +16,7 @@ import useSidebarContext from "../context/SideBarContext/sideBarContext";
 import Sidebar from "../components/Sidebar";
 import useFavorite from "../context/FavoriteContext/favoriteContext";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [cars, setCars] = useState<Car[]>();
@@ -24,6 +25,7 @@ const Home = () => {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [selectedSeats, setSelectedSeats] = useState<number[]>([]);
   const [maxPrice, setMaxPrice] = useState(0);
+  const navigate = useNavigate()
   const { toggleFavorite, isFavorite } = useFavorite();
   useEffect(() => {
     const loadCar = async () => {
@@ -82,9 +84,9 @@ const Home = () => {
     <div
       className={`transition-all min-h-screen mb-10 ${isSidebarOpen ? "md:pl-96" : ""}`}
     >
-      <section className="flex flex-col md:flex-row gap-6 w-full px-4 md:px-32 mt-30  ">
-        <div className="relative w-full md:w-1/2 h-[360px] md:h-[400px] bg-[#54A6FF] rounded-lg overflow-hidden flex flex-col ">
-          <div className="flex flex-col h-full p-6 md:p-8 z-10">
+      <section className="flex flex-col md:flex-row gap-4 sm:gap-6 w-full px-4 sm:px-8 md:px-32 mt-30 ">
+        <div className="relative w-full md:w-1/2 h-[320px] sm:h-[360px] md:h-[400px] bg-[#54A6FF] rounded-lg overflow-hidden flex flex-col">
+          <div className="flex flex-col h-full p-4 sm:p-6 md:p-8 z-10">
             <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white w-full md:w-[272px]">
               The Best Platform for Car Rental
             </h1>
@@ -92,19 +94,19 @@ const Home = () => {
               Ease of doing a car rental safely and reliably. Of course at a low
               price.
             </p>
-            <button className="mt-4 bg-[#3563E9] text-white w-[134px] h-[50px] rounded-md flex justify-center items-center">
+            <button className="mt-4 bg-[#3563E9] text-white w-[120px] h-[44px] sm:w-[134px] sm:h-[50px] rounded-md flex justify-center items-center">
               Rental Car
             </button>
           </div>
           <img
             src={photo1}
             alt=""
-            className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[90%] sm:w-[95%] md:w-[550px] h-auto object-contain"
+            className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[95%] sm:w-[95%] md:w-[550px] h-auto object-contain"
           />
         </div>
 
-        <div className="relative w-full md:w-1/2 h-[360px] md:h-[400px] bg-[#3563E9] rounded-lg overflow-hidden flex flex-col">
-          <div className="flex flex-col h-full p-6 md:p-8 z-10">
+        <div className="relative w-full md:w-1/2 h-[320px] sm:h-[360px] md:h-[400px] bg-[#3563E9] rounded-lg overflow-hidden flex flex-col">
+          <div className="flex flex-col h-full p-4 sm:p-6 md:p-8 z-10">
             <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white w-full md:w-[272px]">
               Easy way to rent a car at a low price
             </h1>
@@ -112,7 +114,7 @@ const Home = () => {
               Easy way to rent a car at a low price Providing cheap car rental
               services and safe and comfortable facilities.
             </p>
-            <button className="mt-4 bg-[#54A6FF] text-white w-[134px] h-[50px] rounded-md flex justify-center items-center">
+            <button className="mt-4 bg-[#54A6FF] text-white w-[120px] h-[44px] sm:w-[134px] sm:h-[50px] rounded-md flex justify-center items-center">
               Rental Car
             </button>
           </div>
@@ -120,13 +122,13 @@ const Home = () => {
           <img
             src={photo2}
             alt=""
-            className="absolute bottom-[-30px] left-1/2 transform -translate-x-1/2 w-[85%] sm:w-[90%] md:w-[440px] h-auto scale-x-[-1] object-contain"
+            className="absolute bottom-[-20px] sm:bottom-[-30px] left-1/2 transform -translate-x-1/2 w-[90%] sm:w-[90%] md:w-[440px] h-auto scale-x-[-1] object-contain"
           />
         </div>
       </section>
-      <section className="mt-3 mx-4 md:mx-24 items-center">
-        <div className="flex flex-col md:flex-row flex-wrap md:flex-nowrap gap-6 md:gap-10 w-full p-4 md:p-7 rounded-lg items-stretch md:items-center">
-          <div className="flex flex-col gap-4 w-full md:flex-1 bg-white p-5 rounded-lg">
+      <section className="mt-3 mx-4 min-[820px]:mx-12 min-[1180px]:mx-24 items-center">
+        <div className="flex flex-col min-[820px]:flex-row flex-wrap min-[1180px]:flex-nowrap gap-6 min-[1180px]:gap-10 w-full p-4 min-[820px]:p-6 min-[1180px]:p-7 rounded-lg items-stretch min-[1180px]:items-center">
+          <div className="flex flex-col gap-4 w-full min-[820px]:flex-1 bg-white p-5 rounded-lg">
             <div className="flex items-center gap-3 mb-3">
               <span className="text-blue-800">
                 <RadioButtonCheckedIcon />
@@ -134,46 +136,46 @@ const Home = () => {
               <span>Pick - UP</span>
             </div>
 
-            <div className="flex flex-col md:flex-row flex-wrap gap-4 md:gap-10">
-              <div className="flex flex-col gap-3 w-full md:w-auto">
+            <div className="flex flex-col min-[820px]:flex-row flex-wrap gap-4 min-[1180px]:gap-10">
+              <div className="flex flex-col gap-3 w-full min-[820px]:w-auto">
                 <span>Locations</span>
                 <select
                   name="city"
                   id="city"
-                  className="text-gray-400 w-full md:w-40 rounded-md px-2 py-1"
+                  className="text-gray-400 w-full min-[820px]:w-36 min-[1180px]:w-40 rounded-md px-2 py-1"
                 >
                   <option value="city">Select your city</option>
                 </select>
               </div>
 
-              <div className="hidden md:block border-r-2 border-gray-300 h-16 md:h-auto"></div>
+              <div className="hidden min-[1180px]:block border-r-2 border-gray-300 h-16 min-[1180px]:h-auto"></div>
 
-              <div className="flex flex-col gap-3 w-full md:w-auto">
+              <div className="flex flex-col gap-3 w-full min-[820px]:w-auto">
                 <span>Date</span>
                 <select
                   name="date"
                   id="date"
-                  className="text-gray-400 w-full md:w-40 rounded-md px-2 py-1"
+                  className="text-gray-400 w-full min-[820px]:w-36 min-[1180px]:w-40 rounded-md px-2 py-1"
                 >
                   <option value="date">Select your date</option>
                 </select>
               </div>
 
-              <div className="hidden md:block border-r-2 border-gray-300 h-16 md:h-auto"></div>
+              <div className="hidden min-[1180px]:block border-r-2 border-gray-300 h-16 min-[1180px]:h-auto"></div>
 
-              <div className="flex flex-col gap-3 w-full md:w-auto">
+              <div className="flex flex-col gap-3 w-full min-[820px]:w-auto">
                 <span>Time</span>
                 <select
                   name="time"
                   id="time"
-                  className="text-gray-400 w-full md:w-40 rounded-md px-2 py-1"
+                  className="text-gray-400 w-full min-[820px]:w-36 min-[1180px]:w-40 rounded-md px-2 py-1"
                 >
                   <option value="time">Select your time</option>
                 </select>
               </div>
             </div>
           </div>
-          <div className="flex justify-center w-full md:w-auto mt-4 md:mt-0">
+          <div className="flex justify-center w-full min-[820px]:w-auto mt-4 min-[820px]:mt-0">
             <div className="bg-[#3563E9] flex px-2 py-3 h-15 rounded-lg gap-1">
               <span className="text-white text-lg">
                 <ArrowUpwardIcon />
@@ -183,7 +185,7 @@ const Home = () => {
               </span>
             </div>
           </div>
-          <div className="flex flex-col gap-4 w-full md:flex-1 mt-4 md:mt-0 bg-white p-5 rounded-lg">
+          <div className="flex flex-col gap-4 w-full min-[820px]:flex-1 mt-4 min-[820px]:mt-0 bg-white p-5 rounded-lg">
             <div className="flex items-center gap-3 mb-3">
               <span className="text-blue-500">
                 <RadioButtonCheckedIcon />
@@ -191,39 +193,39 @@ const Home = () => {
               <span>Drop - Off</span>
             </div>
 
-            <div className="flex flex-col md:flex-row flex-wrap gap-4 md:gap-10">
-              <div className="flex flex-col gap-3 w-full md:w-auto">
+            <div className="flex flex-col min-[820px]:flex-row flex-wrap gap-4 min-[1180px]:gap-10">
+              <div className="flex flex-col gap-3 w-full min-[820px]:w-auto">
                 <span>Locations</span>
                 <select
                   name="city"
                   id="city"
-                  className="text-gray-400 w-full md:w-40 rounded-md px-2 py-1"
+                  className="text-gray-400 w-full min-[820px]:w-36 min-[1180px]:w-40 rounded-md px-2 py-1"
                 >
                   <option value="city">Select your city</option>
                 </select>
               </div>
 
-              <div className="hidden md:block border-r-2 border-gray-300 h-16 md:h-auto"></div>
+              <div className="hidden min-[1180px]:block border-r-2 border-gray-300 h-16 min-[1180px]:h-auto"></div>
 
-              <div className="flex flex-col gap-3 w-full md:w-auto">
+              <div className="flex flex-col gap-3 w-full min-[820px]:w-auto">
                 <span>Date</span>
                 <select
                   name="date"
                   id="date"
-                  className="text-gray-400 w-full md:w-40 rounded-md px-2 py-1"
+                  className="text-gray-400 w-full min-[820px]:w-36 min-[1180px]:w-40 rounded-md px-2 py-1"
                 >
                   <option value="date">Select your date</option>
                 </select>
               </div>
 
-              <div className="hidden md:block border-r-2 border-gray-300 h-16 md:h-auto"></div>
+              <div className="hidden min-[1180px]:block border-r-2 border-gray-300 h-16 min-[1180px]:h-auto"></div>
 
-              <div className="flex flex-col gap-3 w-full md:w-auto">
+              <div className="flex flex-col gap-3 w-full min-[820px]:w-auto">
                 <span>Time</span>
                 <select
                   name="time"
                   id="time"
-                  className="text-gray-400 w-full md:w-40 rounded-md px-2 py-1"
+                  className="text-gray-400 w-full min-[820px]:w-36 min-[1180px]:w-40 rounded-md px-2 py-1"
                 >
                   <option value="time">Select your time</option>
                 </select>
@@ -241,6 +243,7 @@ const Home = () => {
             .map((car) => (
               <div
                 key={car.id}
+                onClick={()=>navigate(`cars/${car.id}`)}
                 className="bg-white rounded-lg shadow-md p-4 flex flex-col items-center transition-transform hover:scale-105 w-full"
               >
                 <div className="flex flex-col sm:flex-row justify-between w-full mb-2 items-start sm:items-center gap-2">
@@ -310,6 +313,7 @@ const Home = () => {
             .map((car) => (
               <div
                 key={car.id}
+                  onClick={()=>navigate(`cars/${car.id}`)}
                 className="bg-white rounded-lg shadow-md p-4 flex flex-col items-center transition-transform hover:scale-105 w-full"
               >
                 <div className="flex flex-col sm:flex-row justify-between w-full mb-2 items-start sm:items-center gap-2">

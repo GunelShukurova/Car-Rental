@@ -16,7 +16,7 @@ const Header = () => {
   const { favorites } = useFavorite();
 
   return (
-    <div className="w-full bg-white border-b border-gray-200 flex flex-col sm:flex-row justify-between items-stretch sm:items-center px-4 sm:px-8 md:px-16 py-4 gap-3 fixed top-0 z-50 shadow-sm">
+    <div className="w-full bg-white border-b border-gray-200 flex flex-col lg:flex-row justify-between items-stretch lg:items-center px-4 sm:px-8 lg:px-16 py-4 gap-3 fixed top-0 z-50 shadow-sm">
       <div className="flex w-full justify-between items-center sm:hidden mb-2">
         <span
           className="text-gray-600 p-2 border border-gray-300 rounded-full flex justify-center items-center cursor-pointer"
@@ -37,14 +37,14 @@ const Header = () => {
           alt="user"
         />
       </div>
-      <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-4 w-full sm:w-auto">
+      <div className="flex flex-row flex-wrap md:flex-nowrap items-center gap-2 sm:gap-4 w-full lg:w-auto">
         <span
           onClick={() => navigate("/")}
-          className="hidden sm:block text-3xl font-semibold text-[#3563E9]"
+          className="hidden sm:block text-2xl lg:text-3xl font-semibold text-[#3563E9]"
         >
           MORENT
         </span>
-        <div className="relative w-full sm:w-[492px] mt-2 sm:mt-0 sm:flex-1">
+        <div className="relative flex-1 min-w-[220px] sm:min-w-[280px] md:min-w-[320px] lg:w-[492px]">
           <input
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
@@ -62,22 +62,22 @@ const Header = () => {
             <TuneIcon />
           </span>
         </div>
-        <div className="flex gap-4 flex-wrap mt-2 sm:mt-0 justify-center sm:justify-start w-full sm:w-auto">
+        <div className="flex gap-4 justify-end w-auto whitespace-nowrap">
           <span
             onClick={() => navigate("/")}
-            className="text-xl cursor-pointer text-blue-700"
+            className="text-base md:text-lg lg:text-xl cursor-pointer text-blue-700"
           >
             Home
           </span>
           <span
             onClick={() => navigate("/cars")}
-            className="text-xl cursor-pointer text-blue-700"
+            className="text-base md:text-lg lg:text-xl cursor-pointer text-blue-700"
           >
             Cars
           </span>
         </div>
       </div>
-      <div className="hidden sm:flex gap-2 sm:gap-5 items-center w-full sm:w-auto justify-end">
+      <div className="hidden sm:flex gap-2 sm:gap-4 lg:gap-5 items-center w-full lg:w-auto justify-end">
         <img
           className="object-cover w-8 h-8 rounded-full"
           src="https://www.perfocal.com/blog/content/images/2021/01/Perfocal_17-11-2019_TYWFAQ_100_standard-3.jpg"
