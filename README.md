@@ -1,73 +1,109 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚗 Car Rental
 
-Currently, two official plugins are available:
+A web application for renting cars. Users can browse available cars, search and filter them, view detailed information, and add cars to their favorites list.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+📌 Features
 
-## React Compiler
+🏠 Home Page – Displays all available cars
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+🚗 Car Details Page – Shows detailed information about a selected car
 
-## Expanding the ESLint configuration
+❤️ Favorites Page – Displays cars added to the favorites list
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+🔎 Search Functionality – Search cars by brand, model and category
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+🧰 Filter Functionality – Filter cars based on specific criteria
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+📱 Responsive Design – Fully responsive for mobile, tablet, and desktop
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+⭐ Add to Favorites – Save favorite cars for quick access
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+🛠 Technologies Used
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+HTML
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+CSS
+
+JavaScript
+
+React 
+
+TypeScript
+
+JSON Server (for fake backend API)
+
+📦 Installation
+
+Clone the repository:
+
+git clone https://github.com/your-username/car-rental.git
+
+Go to the project folder:
+
+cd car-rental
+
+Install dependencies:
+
+npm install
+
+▶️ Running the Project
+
+You need two terminals.
+
+Terminal 1 – Run JSON Server (Fake API)
+npx json-server --watch db.json --port 3000
+
+This will start the backend server at:
+
+http://localhost:3000
+
+Terminal 2 – Run the Frontend
+npm run dev
+
+The project will run at:
+
+http://localhost:5173
+📂 Project Pages
+
+Home Page – Shows all cars
+
+Details Page – Detailed information about each car
+
+Favorites Page – List of saved favorite cars
+
+📱 Responsive Design
+
+The application is fully responsive and works on:
+
+Desktop
+
+Tablet
+
+Mobile devices
+
+📄 API (JSON Server)
+
+The project uses JSON Server as a fake backend. Data is stored in:
+
+db.json
+
+Example endpoint:
+
+http://localhost:3000/cars
+
+📸 Screenshots
+🏠 Home Page
+<img width="1900" height="1109" alt="Screenshot 2026-03-03 at 14 14 29" src="https://github.com/user-attachments/assets/3fb95860-0841-4960-ab28-cd2fdc40ea6f" />
+
+
+🚗 Car Details Page
+<img width="1452" height="692" alt="Screenshot 2026-03-03 at 14 14 42" src="https://github.com/user-attachments/assets/1ae343c1-6a7b-423c-a2df-6aeb8386daba" />
+
+❤️ Favorites Page
+<img width="1804" height="795" alt="Screenshot 2026-03-03 at 14 15 07" src="https://github.com/user-attachments/assets/829176e2-3e12-4b3d-b3ab-c9048cf8dd30" />
+
+🔎 Search & Filter
+<img width="1870" height="973" alt="Screenshot 2026-03-03 at 14 14 53" src="https://github.com/user-attachments/assets/8dd56b73-5bd4-4495-9c55-7bddd60252f3" />
+
+
