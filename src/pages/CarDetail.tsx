@@ -25,7 +25,7 @@ const CarDetail = () => {
   if (!car) return <div className="p-4">Car not found</div>;
 
   return (
-  <div className="p-4 pt-32 sm:pt-24 lg:pt-30 flex flex-col lg:flex-row gap-6 lg:gap-10 justify-center items-start max-w-6xl mx-auto mix-g min-h-screen">
+  <div className="p-4 pt-24 sm:pt-28 lg:pt-32 flex flex-col lg:flex-row gap-6 lg:gap-10 justify-center items-start max-w-6xl mx-auto mix-g min-h-screen">
   <div className="flex flex-col w-full lg:w-auto">
     <img
       className="w-full max-w-2xl h-52 sm:h-72 md:h-80 lg:h-96 object-cover rounded-md mb-5"

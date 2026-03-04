@@ -16,7 +16,7 @@ const Header = () => {
   const { favorites } = useFavorite();
 
   return (
-    <div className="w-full bg-white border-b border-gray-200 flex flex-col lg:flex-row justify-between items-stretch lg:items-center px-4 sm:px-8 lg:px-16 py-4 gap-3 fixed top-0 z-50 shadow-sm">
+    <div className="w-full bg-white border-b border-gray-200 flex flex-col lg:flex-row justify-between items-stretch lg:items-center px-4 sm:px-8 lg:px-16 py-4 gap-3 sticky top-0 sm:fixed z-50 shadow-sm">
       <div className="flex w-full justify-between items-center sm:hidden mb-2">
         <span
           className="text-gray-600 p-2 border border-gray-300 rounded-full flex justify-center items-center cursor-pointer"

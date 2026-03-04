@@ -56,7 +56,7 @@ const Cars = () => {
 
   return (
     <div
-      className={`transition-all duration-300  ${isSidebarOpen ? "md:pl-96" : ""} pt-20`}
+      className={`transition-all duration-300 pt-4 sm:pt-28 lg:pt-20  ${isSidebarOpen ? "md:pl-96" : ""}`}
     >
       <section className="mt-10 mx-4 sm:mx-6 md:mx-10 lg:mx-20 min-h-screen mb-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 auto-rows-fr ">

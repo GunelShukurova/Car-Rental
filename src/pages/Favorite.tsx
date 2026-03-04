@@ -25,19 +25,16 @@ const Favorite = () => {
     const loadCars = async () => {
       const data = await getAllCars();
       setCars(data);
+
+      const max = Math.max(...data.map((car) => car.price));
+      setMaxPrice(max);
     };
+
     loadCars();
   }, []);
 
   const favoriteCars = cars
     .filter((car) => favorites.includes(car.id))
-    .filter(
-      (c) =>
-        c.brand.toLowerCase().includes(searchValue.toLowerCase().trim()) ||
-        c.model.toLowerCase().includes(searchValue.toLowerCase().trim()) ||
-        c.category.toLowerCase().includes(searchValue.toLowerCase().trim()),
-    );
-  const filteredCars = cars
     .filter(
       (car) =>
         car.brand.toLowerCase().includes(searchValue.toLowerCase().trim()) ||
@@ -52,78 +49,83 @@ const Favorite = () => {
     .filter((car) =>
       selectedSeats.length === 0 ? true : selectedSeats.includes(car.seats),
     )
-    .filter((car) => car.price <= maxPrice);
+    .filter((car) => (maxPrice === 0 ? true : car.price <= maxPrice));
 
   return (
-      <div
-      className={`transition-all duration-300  ${isSidebarOpen ? "md:pl-96" : ""} `}
+    <div
+      className={`transition-all duration-300 pt-4 sm:pt-28 lg:pt-20 ${isSidebarOpen ? "md:pl-96" : ""}`}
     >
-    <section className="mt-30 lg:mt-40 sm:mt-20 mx-4 sm:mx-6 md:mx-10 lg:mx-20 min-h-screen mb-10 ье-10">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-6">
-        {favoriteCars.map((car) => (
-          <div
-            key={car.id}
-            onClick={() => navigate(`/cars/${car.id}`)}
-            className="bg-white rounded-lg shadow-md p-4 flex flex-col items-center transition-transform hover:scale-105 w-full"
-          >
-            <div className="flex justify-between w-full mb-2">
-              <div>
-                <h3 className="text-lg font-semibold">
-                  {car.brand} {car.model}
-                </h3>
-                <span className="text-gray-500 text-sm">{car.category}</span>
+      <section className="mt-6 sm:mt-8 mx-4 sm:mx-6 md:mx-10 lg:mx-20 min-h-screen mb-10 ">
+          <h1 className="text-2xl mb-10 text-gray-500">Favorites</h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-6">
+          
+          {favoriteCars.map((car) => (
+            <div
+              key={car.id}
+              onClick={() => navigate(`/cars/${car.id}`)}
+              className="bg-white rounded-lg shadow-md p-4 flex flex-col items-center transition-transform hover:scale-105 w-full"
+            >
+            
+              <div className="flex justify-between w-full mb-2">
+                <div>
+                  <h3 className="text-lg font-semibold">
+                    {car.brand} {car.model}
+                  </h3>
+                  <span className="text-gray-500 text-sm">{car.category}</span>
+                </div>
+
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    toggleFavorite(car.id);
+                  }}
+                >
+                  <FavoriteIcon className="text-red-500" />
+                </button>
               </div>
 
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  toggleFavorite(car.id);
-                }}
-              >
-                <FavoriteIcon className="text-red-500" />
-              </button>
+              <img
+                src={car.image}
+                alt={car.brand}
+                className="w-full h-44 object-cover rounded-md mb-4"
+              />
+
+              <div className="flex justify-between w-full text-gray-400 text-sm mb-3">
+                <div className="flex items-center gap-1">
+                  <LocalGasStationIcon />
+                  <span>{car.fuelCapacity}L</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <PiRadioButtonThin />
+                  <span>{car.transmission}</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <MdPeople />
+                  <span>{car.seats}</span>
+                </div>
+              </div>
+
+              <div className="flex justify-between w-full items-center">
+                <span className="text-xl font-semibold">
+                  ${car.price} / day
+                </span>
+                <button className="bg-[#3563E9] text-white px-4 py-2 rounded-md hover:bg-[#2349b2]">
+                  Rental Car
+                </button>
+              </div>
             </div>
-
-            <img
-              src={car.image}
-              alt={car.brand}
-              className="w-full h-44 object-cover rounded-md mb-4"
-            />
-
-            <div className="flex justify-between w-full text-gray-400 text-sm mb-3">
-              <div className="flex items-center gap-1">
-                <LocalGasStationIcon />
-                <span>{car.fuelCapacity}L</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <PiRadioButtonThin />
-                <span>{car.transmission}</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <MdPeople />
-                <span>{car.seats}</span>
-              </div>
-            </div>
-
-            <div className="flex justify-between w-full items-center">
-              <span className="text-xl font-semibold">${car.price} / day</span>
-              <button className="bg-[#3563E9] text-white px-4 py-2 rounded-md hover:bg-[#2349b2]">
-                Rental Car
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {favoriteCars.length === 0 && (
-        <div className="text-center text-gray-500 mt-20 text-xl">
-          No favorite cars yet
+          ))}
         </div>
-      )}
-    </section>
+
+        {favoriteCars.length === 0 && (
+          <div className="text-center text-gray-500 mt-20 text-xl">
+            No favorite cars yet
+          </div>
+        )}
+      </section>
       <Sidebar
         cars={cars}
-        filteredCars={filteredCars}
+        filteredCars={cars}
         selectedCategories={selectedCategories}
         setSelectedCategories={setSelectedCategories}
         selectedSeats={selectedSeats}

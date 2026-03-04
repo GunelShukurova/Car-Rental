@@ -21,7 +21,7 @@ import { useNavigate } from "react-router-dom";
 const Home = () => {
   const [cars, setCars] = useState<Car[]>();
   const { searchValue } = useSearchContext();
-  const { isSidebarOpen, setIsSidebarOpen } = useSidebarContext();
+  const { isSidebarOpen } = useSidebarContext();
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [selectedSeats, setSelectedSeats] = useState<number[]>([]);
   const [maxPrice, setMaxPrice] = useState(0);
@@ -82,9 +82,9 @@ const Home = () => {
 
   return (
     <div
-      className={`transition-all min-h-screen mb-10 ${isSidebarOpen ? "md:pl-96" : ""}`}
+      className={`transition-all min-h-screen mb-10 pt-4 sm:pt-8 lg:pt-32 ${isSidebarOpen ? "md:pl-96" : ""}`}
     >
-      <section className="flex flex-col md:flex-row gap-4 sm:gap-6 w-full px-4 sm:px-8 md:px-32 mt-30 ">
+      <section className="flex flex-col md:flex-row gap-4 sm:gap-6 w-full px-4 sm:px-8 md:px-32 mt-6 sm:mt-8">
         <div className="relative w-full md:w-1/2 h-[320px] sm:h-[360px] md:h-[400px] bg-[#54A6FF] rounded-lg overflow-hidden flex flex-col">
           <div className="flex flex-col h-full p-4 sm:p-6 md:p-8 z-10">
             <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white w-full md:w-[272px]">
@@ -313,7 +313,7 @@ const Home = () => {
             .map((car) => (
               <div
                 key={car.id}
-                  onClick={()=>navigate(`cars/${car.id}`)}
+
                 className="bg-white rounded-lg shadow-md p-4 flex flex-col items-center transition-transform hover:scale-105 w-full"
               >
                 <div className="flex flex-col sm:flex-row justify-between w-full mb-2 items-start sm:items-center gap-2">
